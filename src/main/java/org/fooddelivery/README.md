@@ -123,7 +123,7 @@ MyFoodDelivery/
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/your-username/MyFoodDelivery.git
+git clone https://github.com/SayTas/FoodDeliverySystem-java.git
 cd MyFoodDelivery
 ```
 
