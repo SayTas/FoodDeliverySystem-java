@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="24.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="org.fooddelivery.model.AuthUser">
+    <void property="password">
+     <string>1234</string>
+    </void>
+    <void property="role">
+     <string>USER</string>
+    </void>
+    <void property="username">
+     <string>Sayma</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.AuthUser">
+    <void property="password">
+     <string>1234</string>
+    </void>
+    <void property="role">
+     <string>ADMIN</string>
+    </void>
+    <void property="username">
+     <string>Tasnim</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.AuthUser">
+    <void property="password">
+     <string>1234</string>
+    </void>
+    <void property="role">
+     <string>RESTAURANT</string>
+    </void>
+    <void property="username">
+     <string>Jami</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

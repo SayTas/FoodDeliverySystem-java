@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="24.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="org.fooddelivery.model.Restaurant">
+    <void property="location">
+     <string>Mirpur</string>
+    </void>
+    <void property="name">
+     <string>KFC</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.Restaurant">
+    <void property="location">
+     <string>Banani</string>
+    </void>
+    <void property="name">
+     <string>Travel East</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.Restaurant">
+    <void property="location">
+     <string>Gulshan</string>
+    </void>
+    <void property="name">
+     <string>Pizza Hut</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.Restaurant">
+    <void property="location">
+     <string>Dhanmondi</string>
+    </void>
+    <void property="name">
+     <string>Burger King</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.Restaurant">
+    <void property="location">
+     <string>Uttara</string>
+    </void>
+    <void property="name">
+     <string>Segreto</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.Restaurant">
+    <void property="location">
+     <string>Gazipur</string>
+    </void>
+    <void property="name">
+     <string>Hello Pizza</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.Restaurant">
+    <void property="location">
+     <string>Gulshan</string>
+    </void>
+    <void property="name">
+     <string>North End</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
