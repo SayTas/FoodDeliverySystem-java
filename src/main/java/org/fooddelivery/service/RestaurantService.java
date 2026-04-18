@@ -5,6 +5,7 @@ import org.fooddelivery.model.Restaurant;
 import org.fooddelivery.storage.XMLStorage;
 import org.fooddelivery.util.DistanceCalculator;
 
+import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -17,6 +18,16 @@ public class RestaurantService {
         Object obj = XMLStorage.load(FILE);
         if (obj != null) {
             restaurants = (List<Restaurant>) obj;
+
+            // If every restaurant has an empty menu, the data file is stale
+            // (was saved before menu items were added to seedSampleData).
+            // Delete it and re-seed from scratch.
+            if (restaurants.stream().allMatch(r -> r.getMenu().isEmpty())) {
+                new File(FILE).delete();
+                restaurants.clear();
+                seedSampleData();
+                save();
+            }
         } else {
             restaurants = new ArrayList<>();
             seedSampleData();
@@ -100,7 +111,6 @@ public class RestaurantService {
     }
 
     // ── SEED SAMPLE DATA ───────────────────────────────────
-
     private void seedSampleData() {
         // ── Mirpur ─────────────────────────────────────────
         Restaurant kfc = new Restaurant("KFC", "Mirpur");

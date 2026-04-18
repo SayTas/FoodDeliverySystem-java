@@ -2,9 +2,90 @@
 <java version="24.0.2" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="org.fooddelivery.model.Restaurant">
+   <object class="org.fooddelivery.model.Restaurant" id="Restaurant0">
     <void property="location">
      <string>Mirpur</string>
+    </void>
+    <void property="menu">
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem0">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Patty +60</string>
+        </void>
+        <void method="add">
+         <string>Cheese Slice +20</string>
+        </void>
+        <void method="add">
+         <string>Jalapeño +15</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Zinger Burger</string>
+       </void>
+       <void property="price">
+        <double>199.0</double>
+       </void>
+       <void property="quantity">
+        <int>50</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem1">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Sauce +10</string>
+        </void>
+        <void method="add">
+         <string>Coleslaw +30</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Crispy Chicken</string>
+       </void>
+       <void property="price">
+        <double>249.0</double>
+       </void>
+       <void property="quantity">
+        <int>40</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem2">
+       <void property="addOns">
+        <void method="add">
+         <string>BBQ Dip +15</string>
+        </void>
+        <void method="add">
+         <string>Garlic Dip +15</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Hot Wings (6pc)</string>
+       </void>
+       <void property="price">
+        <double>179.0</double>
+       </void>
+       <void property="quantity">
+        <int>60</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem">
+       <void property="name">
+        <string>Pepsi</string>
+       </void>
+       <void property="price">
+        <double>50.0</double>
+       </void>
+       <void property="quantity">
+        <int>100</int>
+       </void>
+      </object>
+     </void>
     </void>
     <void property="name">
      <string>KFC</string>
@@ -12,9 +93,87 @@
    </object>
   </void>
   <void method="add">
-   <object class="org.fooddelivery.model.Restaurant">
+   <object class="org.fooddelivery.model.Restaurant" id="Restaurant1">
     <void property="location">
      <string>Banani</string>
+    </void>
+    <void property="menu">
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem3">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Naan +30</string>
+        </void>
+        <void method="add">
+         <string>Raita +20</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Butter Chicken</string>
+       </void>
+       <void property="price">
+        <double>320.0</double>
+       </void>
+       <void property="quantity">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem4">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Meat +90</string>
+        </void>
+        <void method="add">
+         <string>Borhani +30</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Lamb Biryani</string>
+       </void>
+       <void property="price">
+        <double>380.0</double>
+       </void>
+       <void property="quantity">
+        <int>25</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem5">
+       <void property="addOns">
+        <void method="add">
+         <string>Mint Chutney +15</string>
+        </void>
+        <void method="add">
+         <string>Extra Gravy +30</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Paneer Tikka</string>
+       </void>
+       <void property="price">
+        <double>280.0</double>
+       </void>
+       <void property="quantity">
+        <int>35</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem">
+       <void property="name">
+        <string>Mango Lassi</string>
+       </void>
+       <void property="price">
+        <double>80.0</double>
+       </void>
+       <void property="quantity">
+        <int>60</int>
+       </void>
+      </object>
+     </void>
     </void>
     <void property="name">
      <string>Travel East</string>
@@ -22,9 +181,87 @@
    </object>
   </void>
   <void method="add">
-   <object class="org.fooddelivery.model.Restaurant">
+   <object class="org.fooddelivery.model.Restaurant" id="Restaurant2">
     <void property="location">
      <string>Gulshan</string>
+    </void>
+    <void property="menu">
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem6">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Cheese +60</string>
+        </void>
+        <void method="add">
+         <string>Olives +30</string>
+        </void>
+        <void method="add">
+         <string>Mushroom +30</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Margherita Pizza</string>
+       </void>
+       <void property="price">
+        <double>349.0</double>
+       </void>
+       <void property="quantity">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem7">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Cheese +60</string>
+        </void>
+        <void method="add">
+         <string>Jalapeño +20</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>BBQ Chicken Pizza</string>
+       </void>
+       <void property="price">
+        <double>449.0</double>
+       </void>
+       <void property="quantity">
+        <int>25</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem8">
+       <void property="addOns">
+        <void method="add">
+         <string>Cheese Dip +20</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Garlic Bread</string>
+       </void>
+       <void property="price">
+        <double>129.0</double>
+       </void>
+       <void property="quantity">
+        <int>50</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem">
+       <void property="name">
+        <string>Pepsi</string>
+       </void>
+       <void property="price">
+        <double>50.0</double>
+       </void>
+       <void property="quantity">
+        <int>100</int>
+       </void>
+      </object>
+     </void>
     </void>
     <void property="name">
      <string>Pizza Hut</string>
@@ -32,9 +269,87 @@
    </object>
   </void>
   <void method="add">
-   <object class="org.fooddelivery.model.Restaurant">
+   <object class="org.fooddelivery.model.Restaurant" id="Restaurant3">
     <void property="location">
      <string>Dhanmondi</string>
+    </void>
+    <void property="menu">
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem9">
+       <void property="addOns">
+        <void method="add">
+         <string>Double Patty +80</string>
+        </void>
+        <void method="add">
+         <string>Bacon +50</string>
+        </void>
+        <void method="add">
+         <string>Extra Cheese +25</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Whopper</string>
+       </void>
+       <void property="price">
+        <double>299.0</double>
+       </void>
+       <void property="quantity">
+        <int>40</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem10">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Sauce +10</string>
+        </void>
+        <void method="add">
+         <string>Cheese +25</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Chicken Royale</string>
+       </void>
+       <void property="price">
+        <double>249.0</double>
+       </void>
+       <void property="quantity">
+        <int>45</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem11">
+       <void property="addOns">
+        <void method="add">
+         <string>BBQ Dip +15</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Onion Rings</string>
+       </void>
+       <void property="price">
+        <double>119.0</double>
+       </void>
+       <void property="quantity">
+        <int>60</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem">
+       <void property="name">
+        <string>Fanta</string>
+       </void>
+       <void property="price">
+        <double>50.0</double>
+       </void>
+       <void property="quantity">
+        <int>100</int>
+       </void>
+      </object>
+     </void>
     </void>
     <void property="name">
      <string>Burger King</string>
@@ -42,9 +357,84 @@
    </object>
   </void>
   <void method="add">
-   <object class="org.fooddelivery.model.Restaurant">
+   <object class="org.fooddelivery.model.Restaurant" id="Restaurant4">
     <void property="location">
      <string>Uttara</string>
+    </void>
+    <void property="menu">
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem12">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Bacon +60</string>
+        </void>
+        <void method="add">
+         <string>Truffle Oil +50</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Spaghetti Carbonara</string>
+       </void>
+       <void property="price">
+        <double>420.0</double>
+       </void>
+       <void property="quantity">
+        <int>20</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem13">
+       <void property="addOns">
+        <void method="add">
+         <string>Lemon Butter +30</string>
+        </void>
+        <void method="add">
+         <string>Steamed Veg +40</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Grilled Salmon</string>
+       </void>
+       <void property="price">
+        <double>550.0</double>
+       </void>
+       <void property="quantity">
+        <int>15</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem">
+       <void property="name">
+        <string>Tiramisu</string>
+       </void>
+       <void property="price">
+        <double>220.0</double>
+       </void>
+       <void property="quantity">
+        <int>25</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem14">
+       <void property="addOns">
+        <void method="add">
+         <string>Mint +10</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Lemonade</string>
+       </void>
+       <void property="price">
+        <double>80.0</double>
+       </void>
+       <void property="quantity">
+        <int>50</int>
+       </void>
+      </object>
+     </void>
     </void>
     <void property="name">
      <string>Segreto</string>
@@ -52,22 +442,95 @@
    </object>
   </void>
   <void method="add">
-   <object class="org.fooddelivery.model.Restaurant">
+   <object class="org.fooddelivery.model.Restaurant" id="Restaurant5">
     <void property="location">
      <string>Gazipur</string>
     </void>
+    <void property="menu">
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem15">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Cheese +50</string>
+        </void>
+        <void method="add">
+         <string>Chili Flakes +10</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Classic Pepperoni</string>
+       </void>
+       <void property="price">
+        <double>299.0</double>
+       </void>
+       <void property="quantity">
+        <int>40</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem16">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Cheese +50</string>
+        </void>
+        <void method="add">
+         <string>Jalapeño +15</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Veggie Supreme</string>
+       </void>
+       <void property="price">
+        <double>279.0</double>
+       </void>
+       <void property="quantity">
+        <int>35</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem17">
+       <void property="addOns">
+        <void method="add">
+         <string>Extra Chicken +70</string>
+        </void>
+        <void method="add">
+         <string>BBQ Drizzle +20</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Chicken BBQ Pizza</string>
+       </void>
+       <void property="price">
+        <double>349.0</double>
+       </void>
+       <void property="quantity">
+        <int>30</int>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem18">
+       <void property="addOns">
+        <void method="add">
+         <string>Marinara Dip +20</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Garlic Knots</string>
+       </void>
+       <void property="price">
+        <double>120.0</double>
+       </void>
+       <void property="quantity">
+        <int>50</int>
+       </void>
+      </object>
+     </void>
+    </void>
     <void property="name">
      <string>Hello Pizza</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="org.fooddelivery.model.Restaurant">
-    <void property="location">
-     <string>Gulshan</string>
-    </void>
-    <void property="name">
-     <string>North End</string>
     </void>
    </object>
   </void>
