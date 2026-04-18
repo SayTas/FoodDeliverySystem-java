@@ -9,7 +9,7 @@ public class Publisher {
                 new RestaurantWebServiceImpl()
         );
 
-        System.out.println("SOAP Service running...");
+        System.out.println("SOAP Service running.");
         System.out.println("WSDL: http://localhost:8080/ws/restaurants?wsdl");
     }
 }

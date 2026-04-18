@@ -435,6 +435,27 @@
        </void>
       </object>
      </void>
+     <void method="add">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem15">
+       <void property="addOns">
+        <void method="add">
+         <string>Wasabi +40</string>
+        </void>
+        <void method="add">
+         <string>Soy +20</string>
+        </void>
+       </void>
+       <void property="name">
+        <string>Maki Roll</string>
+       </void>
+       <void property="price">
+        <double>800.0</double>
+       </void>
+       <void property="quantity">
+        <int>20</int>
+       </void>
+      </object>
+     </void>
     </void>
     <void property="name">
      <string>Segreto</string>
@@ -448,7 +469,7 @@
     </void>
     <void property="menu">
      <void method="add">
-      <object class="org.fooddelivery.model.MenuItem" id="MenuItem15">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem16">
        <void property="addOns">
         <void method="add">
          <string>Extra Cheese +50</string>
@@ -469,7 +490,7 @@
       </object>
      </void>
      <void method="add">
-      <object class="org.fooddelivery.model.MenuItem" id="MenuItem16">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem17">
        <void property="addOns">
         <void method="add">
          <string>Extra Cheese +50</string>
@@ -490,7 +511,7 @@
       </object>
      </void>
      <void method="add">
-      <object class="org.fooddelivery.model.MenuItem" id="MenuItem17">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem18">
        <void property="addOns">
         <void method="add">
          <string>Extra Chicken +70</string>
@@ -511,7 +532,7 @@
       </object>
      </void>
      <void method="add">
-      <object class="org.fooddelivery.model.MenuItem" id="MenuItem18">
+      <object class="org.fooddelivery.model.MenuItem" id="MenuItem19">
        <void property="addOns">
         <void method="add">
          <string>Marinara Dip +20</string>
