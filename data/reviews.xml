@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="24.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="org.fooddelivery.model.Review">
+    <void property="comment">
+     <string>Good Food</string>
+    </void>
+    <void property="date">
+     <string>2026-04-20</string>
+    </void>
+    <void property="rating">
+     <int>5</int>
+    </void>
+    <void property="restaurantName">
+     <string>Travel East</string>
+    </void>
+    <void property="reviewerName">
+     <string>Sayma</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.Review">
+    <void property="comment">
+     <string>Need more improvements</string>
+    </void>
+    <void property="date">
+     <string>2026-04-21</string>
+    </void>
+    <void property="rating">
+     <int>4</int>
+    </void>
+    <void property="restaurantName">
+     <string>KFC</string>
+    </void>
+    <void property="reviewerName">
+     <string>Nowshin</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
