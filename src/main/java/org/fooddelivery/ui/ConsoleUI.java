@@ -11,10 +11,11 @@ public class ConsoleUI {
 
     private Scanner sc = new Scanner(System.in);
 
-    private AuthService authService = new AuthService();
+    private AuthService       authService       = new AuthService();
     private RestaurantService restaurantService = new RestaurantService();
-    private OrderService orderService = new OrderService();
-    private CouponService couponService = new CouponService();
+    private OrderService      orderService      = new OrderService();
+    private CouponService     couponService     = new CouponService();
+    private ReviewService     reviewService     = new ReviewService();   // ← new
 
     public void start() {
 
@@ -71,7 +72,11 @@ public class ConsoleUI {
                     new AdminDashboard(restaurantService).show();
 
             case "USER" ->
-                    new UserDashboard(restaurantService, orderService, couponService).show();
+                    new UserDashboard(
+                            restaurantService, orderService,
+                            couponService, reviewService,       // ← added
+                            user.getUsername()                  // ← added
+                    ).show();
 
             case "RESTAURANT" ->
                     new RestaurantDashboard(restaurantService).show();

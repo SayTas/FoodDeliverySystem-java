@@ -1,10 +1,10 @@
 package org.fooddelivery;
 
-import org.fooddelivery.ui.ConsoleUI;
+import javafx.application.Application;
+import org.fooddelivery.ui.gui.FoodDeliveryApp;
 
 public class Main {
     public static void main(String[] args) {
-        ConsoleUI ui = new ConsoleUI();
-        ui.start();
+        Application.launch(FoodDeliveryApp.class, args);
     }
 }

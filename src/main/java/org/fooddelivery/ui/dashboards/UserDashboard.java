@@ -3,10 +3,13 @@ package org.fooddelivery.ui.dashboards;
 import org.fooddelivery.model.MenuItem;
 import org.fooddelivery.model.Order;
 import org.fooddelivery.model.Restaurant;
+import org.fooddelivery.model.Review;
 import org.fooddelivery.service.CouponService;
 import org.fooddelivery.service.OrderService;
 import org.fooddelivery.service.RestaurantService;
+import org.fooddelivery.service.ReviewService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,13 +21,18 @@ public class UserDashboard {
     private final RestaurantService rs;
     private final OrderService      os;
     private final CouponService     cs;
+    private final ReviewService     rvs;
+    private final String            username;
 
     private Order currentOrder = new Order();
 
-    public UserDashboard(RestaurantService rs, OrderService os, CouponService cs) {
-        this.rs = rs;
-        this.os = os;
-        this.cs = cs;
+    public UserDashboard(RestaurantService rs, OrderService os,
+                         CouponService cs, ReviewService rvs, String username) {
+        this.rs       = rs;
+        this.os       = os;
+        this.cs       = cs;
+        this.rvs      = rvs;
+        this.username = username;
     }
 
     public void show() {
@@ -37,6 +45,8 @@ public class UserDashboard {
             System.out.println("  5. View current order");
             System.out.println("  6. Apply coupon & checkout");
             System.out.println("  7. Track order");
+            System.out.println("  8. Write a review for a restaurant");
+            System.out.println("  9. View reviews for a restaurant");
             System.out.println("  0. Back");
             System.out.print("Select: ");
 
@@ -50,6 +60,8 @@ public class UserDashboard {
                 case 5 -> viewCurrentOrder();
                 case 6 -> checkout();
                 case 7 -> os.trackOrder(currentOrder);
+                case 8 -> writeReview();
+                case 9 -> viewReviews();
                 case 0 -> { return; }
                 default -> System.out.println("Invalid option.");
             }
@@ -65,8 +77,12 @@ public class UserDashboard {
         System.out.println();
         for (int i = 0; i < list.size(); i++) {
             Restaurant r = list.get(i);
-            System.out.printf("  %d. %-25s [%s]  %d items%n",
-                    i + 1, r.getName(), r.getLocation(), r.getMenu().size());
+            double avg = rvs.getAverageRating(r.getName());
+            String avgStr = avg > 0
+                    ? String.format("%.1f★", avg)
+                    : "No reviews";
+            System.out.printf("  %d. %-25s [%s]  %d items  %s%n",
+                    i + 1, r.getName(), r.getLocation(), r.getMenu().size(), avgStr);
         }
     }
 
@@ -83,7 +99,7 @@ public class UserDashboard {
     private void findNearest() {
         System.out.print("Your area (e.g. Dhanmondi, Gulshan, Mirpur): ");
         String loc = sc.nextLine().trim();
-        List<Restaurant> nearby = rs.getNearest(loc);  // already filtered to area-only
+        List<Restaurant> nearby = rs.getNearest(loc);
         if (!nearby.isEmpty()) {
             System.out.println("\n  Restaurants near " + loc + ":");
             listRestaurants(nearby);
@@ -92,7 +108,6 @@ public class UserDashboard {
 
     // ── 4. Browse menu & place order ───────────────────────
     private void browseAndOrder() {
-        // Step 1 — pick a restaurant
         List<Restaurant> all = rs.getAll();
         if (all.isEmpty()) {
             System.out.println("  No restaurants available.");
@@ -112,7 +127,6 @@ public class UserDashboard {
             return;
         }
 
-        // Step 2 — show menu
         boolean ordering = true;
         while (ordering) {
             System.out.println("\n  ══ " + restaurant.getName()
@@ -134,8 +148,6 @@ public class UserDashboard {
             }
 
             MenuItem chosen = menu.get(itemIdx);
-
-            // Step 3 — select add-ons if available
             List<String> selectedAddOns = new ArrayList<>();
             double addOnTotal = 0;
 
@@ -155,7 +167,6 @@ public class UserDashboard {
                             if (aIdx >= 0 && aIdx < addOns.size()) {
                                 String addOn = addOns.get(aIdx);
                                 selectedAddOns.add(addOn);
-                                // Parse price from label format "Name +price"
                                 addOnTotal += parseAddOnPrice(addOn);
                             }
                         } catch (NumberFormatException ignored) {}
@@ -163,7 +174,6 @@ public class UserDashboard {
                 }
             }
 
-            // Step 4 — add to order with a snapshot including add-ons in the name
             double itemTotal = chosen.getPrice() + addOnTotal;
             String itemLabel = selectedAddOns.isEmpty()
                     ? chosen.getName()
@@ -173,7 +183,6 @@ public class UserDashboard {
             System.out.printf("  ✔ Added: %s  ৳%.0f%n", itemLabel, itemTotal);
         }
 
-        // Show running total
         if (!currentOrder.getItems().isEmpty()) {
             System.out.printf("%n  Cart total so far: ৳%.0f%n",
                     currentOrder.calculateTotal());
@@ -192,7 +201,7 @@ public class UserDashboard {
         for (MenuItem i : items) {
             System.out.printf("    %-35s  ৳%.0f%n", i.getName(), i.getPrice());
         }
-        System.out.printf("  ──────────────────────────────────────%n");
+        System.out.printf("  ───────────────────────────────────────%n");
         System.out.printf("  Total:  ৳%.0f%n", currentOrder.calculateTotal());
     }
 
@@ -218,15 +227,91 @@ public class UserDashboard {
         if ("y".equalsIgnoreCase(confirm)) {
             currentOrder.updateStatus("Confirmed");
             System.out.println("  ✔ Order placed! Status: " + currentOrder.getStatus());
-            currentOrder = new Order();   // reset cart for next order
+            currentOrder = new Order();
         } else {
             System.out.println("  Order cancelled.");
         }
     }
 
+    // ── 8. Write a review ──────────────────────────────────
+    private void writeReview() {
+        List<Restaurant> all = rs.getAll();
+        if (all.isEmpty()) {
+            System.out.println("  No restaurants available to review.");
+            return;
+        }
+
+        System.out.println("\n  --- Choose a Restaurant to Review ---");
+        listRestaurants(all);
+        System.out.print("Enter number (0 to cancel): ");
+        int rIdx = readInt() - 1;
+        if (rIdx < 0 || rIdx >= all.size()) return;
+
+        String restaurantName = all.get(rIdx).getName();
+
+        // Rating
+        int rating = 0;
+        while (rating < 1 || rating > 5) {
+            System.out.print("  Rating (1–5 stars): ");
+            rating = readInt();
+            if (rating < 1 || rating > 5) {
+                System.out.println("  Please enter a number between 1 and 5.");
+            }
+        }
+
+        // Comment
+        System.out.print("  Comment (press Enter to leave blank): ");
+        String comment = sc.nextLine().trim();
+        if (comment.isEmpty()) comment = "No comment.";
+
+        Review review = new Review(
+                restaurantName,
+                username,
+                rating,
+                comment,
+                LocalDate.now().toString()
+        );
+
+        rvs.addReview(review);
+        System.out.printf("  ✔ Review saved! You gave %s: %s%n",
+                restaurantName, review.stars());
+    }
+
+    // ── 9. View reviews for a restaurant ──────────────────
+    private void viewReviews() {
+        List<Restaurant> all = rs.getAll();
+        if (all.isEmpty()) {
+            System.out.println("  No restaurants available.");
+            return;
+        }
+
+        System.out.println("\n  --- Choose a Restaurant ---");
+        listRestaurants(all);
+        System.out.print("Enter number (0 to cancel): ");
+        int rIdx = readInt() - 1;
+        if (rIdx < 0 || rIdx >= all.size()) return;
+
+        String restaurantName = all.get(rIdx).getName();
+        List<Review> reviews = rvs.getByRestaurant(restaurantName);
+
+        System.out.println("\n  ══ Reviews for " + restaurantName + " ══");
+
+        if (reviews.isEmpty()) {
+            System.out.println("  No reviews yet. Be the first to review!");
+            return;
+        }
+
+        double avg = rvs.getAverageRating(restaurantName);
+        System.out.printf("  Average Rating: %.1f / 5.0  (%d review%s)%n%n",
+                avg, reviews.size(), reviews.size() == 1 ? "" : "s");
+
+        for (Review rv : reviews) {
+            System.out.println("  " + rv);
+        }
+    }
+
     // ── Helpers ────────────────────────────────────────────
 
-    /** Parse the "+price" suffix from add-on labels like "Extra Cheese +20". */
     private double parseAddOnPrice(String addOnLabel) {
         int plusIdx = addOnLabel.lastIndexOf('+');
         if (plusIdx >= 0) {
@@ -237,7 +322,6 @@ public class UserDashboard {
         return 0;
     }
 
-    /** Safe integer read — ignores trailing newline and bad input. */
     private int readInt() {
         try {
             int v = sc.nextInt();

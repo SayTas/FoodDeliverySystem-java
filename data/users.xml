@@ -53,5 +53,31 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.AuthUser">
+    <void property="password">
+     <string>1234</string>
+    </void>
+    <void property="role">
+     <string>RIDER</string>
+    </void>
+    <void property="username">
+     <string>Amy</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="org.fooddelivery.model.AuthUser">
+    <void property="password">
+     <string>1234</string>
+    </void>
+    <void property="role">
+     <string>USER</string>
+    </void>
+    <void property="username">
+     <string>Nowshin</string>
+    </void>
+   </object>
+  </void>
  </object>
 </java>
